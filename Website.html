@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>basic page title</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="A basic webpage which uses a stylesheet.">
+        <meta name="keywords" content="HTML, webpage, coding, cascading, stylesheet">
+        <meta name="author" content="L. Richardson">
+
+        <link rel="stylesheet" href="style.css" type="text/css" />
+		
+    </head>
+	
+     <body>
+	 
+	 <h1>Cayleb Templetoes</h1>
+       
+	   <img src="Cayleb.jpg" alt="Cayleb" width="1900" height="400">
+		
+		<video id="bgVideo" width="500" height="500" muted controls>
+		<source src="Hotlinebling.mp4" type="video/mp4">
+		</video>
+		
+<script>
+  // No need for window load if script is after the video tag,
+  // but we'll keep it to be extra safe.
+  window.addEventListener('load', function () {
+    function handleFirstMove() {
+      const video = document.getElementById('bgvideo');
+      if (!video) return;
+
+      // Ensure it starts from the beginning if you want
+      video.currentTime = 0;
+      video.muted = false;
+
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.log('Play failed:', err);
+        });
+      }
+
+      window.removeEventListener('mousemove', handleFirstMove);
+    }
+
+    window.addEventListener('mousemove', handleFirstMove, { once: true });
+  });
+</script>
+ 
+ </body>
+</html>
